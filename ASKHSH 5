@@ -1,0 +1,18 @@
+import urllib.request
+import urllib.parse
+import re
+print('Give me a website:')
+url=input()
+numpin=0
+numseir=0
+req = urllib.request.Request(url)
+resp = urllib.request.urlopen(req)
+respData = resp.read()
+pinakes=re.findall("</table>", str(respData))
+for eachP in pinakes:
+    numpin=numpin+1
+seires=re.findall("</tr>",str (respData))
+for eachS in seires:
+    numseir=numseir+1
+print('Arithmos tables:%d'%(numpin))
+print('Arithmos seirwn:%d'%numseir)
