@@ -1,0 +1,12 @@
+print("Please write a word:")
+word=input()
+def all_combs(word):
+    for i in range(len(word)):
+        perna('',word,i+1)
+def perna(prefix,word,max_len):
+    if len(word)<=0 or len(prefix)>=max_len:
+        print(prefix)
+    else:
+        for i in range(len(word)):
+            perna(prefix+word[i],word[:i]+word[i+1:],max_len)
+all_combs(word)
