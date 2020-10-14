@@ -1,0 +1,16 @@
+import re
+print('Insert name of file with .txt at the end:')
+textfile =input()
+y=0
+with open('%s'%textfile, 'r') as fileinput:
+   for line in fileinput:
+       line = line.lower()
+res = [bleh for bleh in fileinput if not re.findall("[^\u0000-\u05C0\u2100-\u214F]+",bleh)]
+for line in res:
+    for word in line:
+        stringA=stringA+word
+def splitTextToThree(string):
+    words = string.split()
+    grouped_words = [' '.join(words[i: i + 3]) for i in range(0, len(words), 3)]
+    return grouped_words
+splitTextToThree('%s'%stringA)
