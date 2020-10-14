@@ -1,0 +1,20 @@
+import random
+stringList = ['S', 'O']
+rows, cols = (10, 10)
+num = 0
+arr = [[random.choice(stringList) for i in range(cols)] for j in range(rows)]
+print(arr)
+print (num)
+for i in range(cols):
+    for j in range(rows):
+        if arr[i][j] == 'S':
+            if i <= 7:
+                if arr[i + 1][j] == 'O' and arr[i + 2][j] == 'S':
+                    num = num + 1
+            if j <= 7:
+                if arr[i][j + 1] == 'O' and arr[i][j + 2] == 'S':
+                    num = num + 1
+            if i <= 7 and j <= 7:
+                if arr[i + 1][j + 1] == 'O' and arr[i + 2][j + 2] == 'S':
+                    num = num + 1
+print(num)
